@@ -1,0 +1,139 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package userInterface;
+
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ *
+ * @author DanielPaddon
+ */
+public class BookTicket extends JPanel {
+    private JLabel enterFirstName;
+    private JTextField firstName; 
+    private JLabel enterLastName;
+    private JTextField lastName; 
+    private JLabel enterId;
+    private JTextField identification;
+    private JLabel enterAddress;
+    private JTextField streetAddress;
+    private JLabel enterCity;
+    private JTextField city;
+    private JLabel selectState;
+    private JComboBox state;
+    private JLabel enterZip;
+    private JTextField zipCode;
+    private JLabel enterPhone;
+    private JTextField phoneNumber;
+    private JButton purchase;
+    private JButton goBack;
+    private JButton cancel;
+    private GridBagLayout gridBagLayout;
+    private GridBagConstraints constraints;
+    private JPanel buttonPane;
+    private JPanel dataPane;
+    private FlowLayout flowLayout;
+    private BorderLayout borderLayout;
+
+    public BookTicket()
+    {
+        initComponents();
+    }
+    
+    private void initComponents()
+    {
+        gridBagLayout = new GridBagLayout();
+        constraints = new GridBagConstraints();
+        this.setLayout(gridBagLayout);        
+        
+        enterFirstName = new JLabel("First Name");
+        enterFirstName.setPreferredSize(new Dimension(100, 25));
+        firstName = new JTextField();
+        firstName.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(0, 0, 1, 1, this, enterFirstName);
+        this.addComponent(1, 0, 1, 1, this, firstName);
+        
+        enterLastName = new JLabel("Last Name");
+        enterLastName.setPreferredSize(new Dimension(100, 25));
+        lastName = new JTextField();
+        lastName.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(0, 1, 1, 1, this, enterLastName);
+        this.addComponent(1, 1, 1, 1, this, lastName);
+        
+        enterId = new JLabel("Identification");
+        enterId.setPreferredSize(new Dimension(100, 25));
+        identification = new JTextField();
+        identification.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(0, 2, 1, 1, this, enterId);
+        this.addComponent(1, 2, 1, 1, this, identification);
+        
+        enterAddress = new JLabel("Address");
+        enterAddress.setPreferredSize(new Dimension(100, 25));
+        streetAddress = new JTextField();
+        streetAddress.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(0, 3, 1, 1, this, enterAddress);
+        this.addComponent(1, 3, 1, 1, this, streetAddress);
+        
+        enterCity = new JLabel("City");
+        enterCity.setPreferredSize(new Dimension(100, 25));
+        city = new JTextField();
+        city.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(0, 4, 1, 1, this, enterCity);
+        this.addComponent(1, 4, 1, 1, this, city);
+        
+        selectState = new JLabel("State");
+        selectState.setPreferredSize(new Dimension(100, 25));
+        state = new JComboBox();
+        state.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(0, 5, 1, 1, this, selectState);
+        this.addComponent(1, 5, 1, 1, this, state);
+        
+        enterZip = new JLabel("Zip Code");
+        enterZip.setPreferredSize(new Dimension(100, 25));
+        zipCode = new JTextField();
+        zipCode.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(0, 6, 1, 1, this, enterZip);
+        this.addComponent(1, 6, 1, 1, this, zipCode);
+        
+        enterPhone = new JLabel("Phone Number");
+        enterPhone.setPreferredSize(new Dimension(100, 25));
+        phoneNumber = new JTextField();
+        phoneNumber.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(0, 7, 1, 1, this, enterPhone);
+        this.addComponent(1, 7, 1, 1, this, phoneNumber);
+        
+        goBack = new JButton("Go Back");
+        goBack.setPreferredSize(new Dimension(100, 25));
+        this.addComponent(0, 8, 1, 1, this, goBack);
+        
+        purchase = new JButton("Complete Purchase");
+        purchase.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(1, 8, 2, 1, this, purchase);
+        
+        cancel = new JButton("Cancel");
+        cancel.setPreferredSize(new Dimension(100, 25));
+        this.addComponent(3, 8, 3, 1, this, cancel);
+    }
+    
+    // X is the column
+    // Y is the row
+    // W is the width in cells
+    // H is the height in cells
+    // aContainer is the container the component is added to
+    // aComponent is the component being added to the container
+    private void addComponent( int x, int y, int w, int h, Container aContainer, Component aComponent )  
+    {  
+        constraints.gridx = x;  
+        constraints.gridy = y;  
+        constraints.gridwidth = w;  
+        constraints.gridheight = h;  
+        gridBagLayout.setConstraints( aComponent, constraints );  
+        aContainer.add( aComponent );  
+    }  
+    
+}
