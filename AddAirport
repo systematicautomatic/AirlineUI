@@ -33,7 +33,7 @@ public class AddAirport extends JPanel{
     JLabel enterCode;
     JTextField airportCode;
 
-    public AddAirport()
+    public AddAirport(JPanel mainPane)
     {
         initComponents();
     }
@@ -45,34 +45,36 @@ public class AddAirport extends JPanel{
         this.setLayout(gridBagLayout);
         
         newAirport = new JLabel("Add A New Airport");
+        newAirport.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(1, 0, 1, 1, this, newAirport);
         
         enterName = new JLabel("Enter Airport Name");
-        enterName.setPreferredSize(new Dimension(50, 25));
+        enterName.setPreferredSize(new Dimension(200, 25));
         airportName = new JTextField();
         airportName.setPreferredSize(new Dimension(200, 25));
         this.addComponent(0, 1, 1, 1, this, enterName);
-        this.addComponent(1, 1, 3, 1, this, airportName);
+        this.addComponent(1, 1, 1, 1, this, airportName);
         
         enterCity = new JLabel("Enter Airport City");
-        enterCity.setPreferredSize(new Dimension(50, 25));
+        enterCity.setPreferredSize(new Dimension(200, 25));
         airportCity = new JTextField();
         airportCity.setPreferredSize(new Dimension(200, 25));
-        this.addComponent(0, 1, 1, 1, this, enterCity);
-        this.addComponent(1, 1, 3, 1, this, airportCity);
+        this.addComponent(0, 2, 1, 1, this, enterCity);
+        this.addComponent(1, 2, 1, 1, this, airportCity);
         
         selectState = new JLabel("Select Airport State");
-        selectState.setPreferredSize(new Dimension(50, 25));
+        selectState.setPreferredSize(new Dimension(200, 25));
         airportState = new JComboBox();
         airportState.setPreferredSize(new Dimension(200, 25));
-        this.addComponent(0, 1, 1, 1, this, selectState);
-        this.addComponent(1, 1, 3, 1, this, airportState);
+        this.addComponent(0, 3, 1, 1, this, selectState);
+        this.addComponent(1, 3, 1, 1, this, airportState);
         
         enterCode = new JLabel("Enter Airport Code");
-        enterCode.setPreferredSize(new Dimension(50, 25));
+        enterCode.setPreferredSize(new Dimension(200, 25));
         airportCode = new JTextField();
         airportCode.setPreferredSize(new Dimension(200, 25));
-        this.addComponent(0, 1, 1, 1, this, enterCode);
-        this.addComponent(1, 1, 3, 1, this, airportCode);
+        this.addComponent(0, 4, 1, 1, this, enterCode);
+        this.addComponent(1, 4, 1, 1, this, airportCode);
         
         addBtn = new JButton("Add Airport");
         addBtn.setPreferredSize(new Dimension(125, 25));
@@ -98,5 +100,5 @@ public class AddAirport extends JPanel{
         gridBagLayout.setConstraints( aComponent, constraints );  
         aContainer.add( aComponent );  
     }  
-    
+        
 }
