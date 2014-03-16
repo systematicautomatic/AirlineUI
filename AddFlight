@@ -1,0 +1,121 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package userInterface;
+
+/**
+ *
+ * @author DanielPaddon
+ */
+
+import java.awt.*;
+import javax.swing.*;
+
+public class AddFlight extends JPanel{
+    GridBagLayout gridBagLayout;
+    GridBagConstraints constraints;
+    JPanel buttonPane;
+    JPanel dataPane;
+    BorderLayout borderLayout;
+    JButton addBtn;
+    JButton canxBtn;
+    JLabel newFlight;
+    JLabel enterNumber;
+    JTextField flightNumber;
+    JLabel departureCity;
+    JComboBox departure;
+    JLabel departDate;
+    JTextField dDate;
+    JLabel arrivalCity;
+    JComboBox arrival;
+    JLabel arriveDate;
+    JTextField aDate;
+    JLabel selectAirplane;
+    JComboBox airplaneType;
+
+    public AddFlight()
+    {
+        initComponents();
+    }
+    
+    private void initComponents()
+    {
+        gridBagLayout = new GridBagLayout();
+        constraints = new GridBagConstraints();
+        this.setLayout(gridBagLayout);
+        
+        newFlight = new JLabel("Add A New Flight");
+        
+        enterNumber = new JLabel("Enter Flight Number");
+        enterNumber.setPreferredSize(new Dimension(50, 25));
+        flightNumber = new JTextField();
+        flightNumber.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 1, 1, 1, this, enterNumber);
+        this.addComponent(1, 1, 3, 1, this, flightNumber);
+        
+        departureCity = new JLabel("Select Departure City");
+        departureCity.setPreferredSize(new Dimension(50, 25));
+        departure = new JComboBox();
+        departure.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 1, 1, 1, this, departureCity);
+        this.addComponent(1, 1, 3, 1, this, departure);
+        
+        departDate = new JLabel("Enter Departure Date/Time");
+        departDate.setPreferredSize(new Dimension(50, 25));
+        dDate = new JTextField();
+        dDate.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 1, 1, 1, this, departDate);
+        this.addComponent(1, 1, 3, 1, this, dDate);
+        
+        arrivalCity = new JLabel("Select Arrival City");
+        arrivalCity.setPreferredSize(new Dimension(50, 25));
+        arrival = new JComboBox();
+        arrival.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 1, 1, 1, this, arrivalCity);
+        this.addComponent(1, 1, 3, 1, this, arrival);
+        
+        arriveDate = new JLabel("Enter Arrival Date/Time");
+        arriveDate.setPreferredSize(new Dimension(50, 25));
+        aDate = new JTextField();
+        aDate.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 1, 1, 1, this, departDate);
+        this.addComponent(1, 1, 3, 1, this, aDate);
+        
+        selectAirplane = new JLabel("Select Airplane Type");
+        selectAirplane.setPreferredSize(new Dimension(50, 25));
+        airplaneType = new JComboBox();
+        airplaneType.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 1, 1, 1, this, selectAirplane);
+        this.addComponent(1, 1, 3, 1, this, airplaneType);
+        
+        addBtn = new JButton("Add Flight");
+        addBtn.setPreferredSize(new Dimension(125, 25));
+        this.addComponent(0, 8, 2, 1, this, addBtn);
+        
+        canxBtn = new JButton("Cancel");
+        canxBtn.setPreferredSize(new Dimension(125, 25));
+        this.addComponent(2, 8, 2, 1, this, canxBtn);
+    }
+    
+    // X is the column
+    // Y is the row
+    // W is the width in cells
+    // H is the height in cells
+    // aContainer is the container the component is added to
+    // aComponent is the component being added to the container
+    private void addComponent( int x, int y, int w, int h, Container aContainer, Component aComponent )  
+    {  
+        constraints.gridx = x;  
+        constraints.gridy = y;  
+        constraints.gridwidth = w;  
+        constraints.gridheight = h;  
+        gridBagLayout.setConstraints( aComponent, constraints );  
+        aContainer.add( aComponent );  
+    }  
+    
+}
+
+
