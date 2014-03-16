@@ -36,7 +36,7 @@ public class AddFlight extends JPanel{
     JLabel selectAirplane;
     JComboBox airplaneType;
 
-    public AddFlight()
+    public AddFlight(JPanel mainPane)
     {
         initComponents();
     }
@@ -48,48 +48,50 @@ public class AddFlight extends JPanel{
         this.setLayout(gridBagLayout);
         
         newFlight = new JLabel("Add A New Flight");
+        newFlight.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(1, 0, 1, 1, this, newFlight);
         
         enterNumber = new JLabel("Enter Flight Number");
-        enterNumber.setPreferredSize(new Dimension(50, 25));
+        enterNumber.setPreferredSize(new Dimension(200, 25));
         flightNumber = new JTextField();
         flightNumber.setPreferredSize(new Dimension(200, 25));
         this.addComponent(0, 1, 1, 1, this, enterNumber);
-        this.addComponent(1, 1, 3, 1, this, flightNumber);
+        this.addComponent(1, 1, 1, 1, this, flightNumber);
         
         departureCity = new JLabel("Select Departure City");
-        departureCity.setPreferredSize(new Dimension(50, 25));
+        departureCity.setPreferredSize(new Dimension(200, 25));
         departure = new JComboBox();
         departure.setPreferredSize(new Dimension(200, 25));
-        this.addComponent(0, 1, 1, 1, this, departureCity);
-        this.addComponent(1, 1, 3, 1, this, departure);
+        this.addComponent(0, 2, 1, 1, this, departureCity);
+        this.addComponent(1, 2, 1, 1, this, departure);
         
         departDate = new JLabel("Enter Departure Date/Time");
-        departDate.setPreferredSize(new Dimension(50, 25));
+        departDate.setPreferredSize(new Dimension(200, 25));
         dDate = new JTextField();
         dDate.setPreferredSize(new Dimension(200, 25));
-        this.addComponent(0, 1, 1, 1, this, departDate);
-        this.addComponent(1, 1, 3, 1, this, dDate);
+        this.addComponent(0, 3, 1, 1, this, departDate);
+        this.addComponent(1, 3, 1, 1, this, dDate);
         
         arrivalCity = new JLabel("Select Arrival City");
-        arrivalCity.setPreferredSize(new Dimension(50, 25));
+        arrivalCity.setPreferredSize(new Dimension(200, 25));
         arrival = new JComboBox();
         arrival.setPreferredSize(new Dimension(200, 25));
-        this.addComponent(0, 1, 1, 1, this, arrivalCity);
-        this.addComponent(1, 1, 3, 1, this, arrival);
+        this.addComponent(0, 4, 1, 1, this, arrivalCity);
+        this.addComponent(1, 4, 1, 1, this, arrival);
         
         arriveDate = new JLabel("Enter Arrival Date/Time");
-        arriveDate.setPreferredSize(new Dimension(50, 25));
+        arriveDate.setPreferredSize(new Dimension(200, 25));
         aDate = new JTextField();
         aDate.setPreferredSize(new Dimension(200, 25));
-        this.addComponent(0, 1, 1, 1, this, departDate);
-        this.addComponent(1, 1, 3, 1, this, aDate);
+        this.addComponent(0, 5, 1, 1, this, arriveDate);
+        this.addComponent(1, 5, 1, 1, this, aDate);
         
         selectAirplane = new JLabel("Select Airplane Type");
-        selectAirplane.setPreferredSize(new Dimension(50, 25));
+        selectAirplane.setPreferredSize(new Dimension(200, 25));
         airplaneType = new JComboBox();
         airplaneType.setPreferredSize(new Dimension(200, 25));
-        this.addComponent(0, 1, 1, 1, this, selectAirplane);
-        this.addComponent(1, 1, 3, 1, this, airplaneType);
+        this.addComponent(0, 6, 1, 1, this, selectAirplane);
+        this.addComponent(1, 6, 1, 1, this, airplaneType);
         
         addBtn = new JButton("Add Flight");
         addBtn.setPreferredSize(new Dimension(125, 25));
