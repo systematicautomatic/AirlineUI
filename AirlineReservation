@@ -1,0 +1,206 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package userInterface;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+
+/**
+ *
+ * @author DanielPaddon
+ */
+public class AirlineReservation {
+    private JFrame frame;
+    private JMenuBar menuBar;
+    private JPanel mainPane;
+
+    private JMenu fileMenu;
+    private JMenuItem addAirport;
+    private JMenuItem addAirline;
+    private JMenuItem addFlight;
+    private JMenuItem exit;
+            
+    private JMenu bookMenu;
+    private JMenuItem bookFlight;
+    
+    private JMenu aboutMenu;
+    private JMenuItem aboutInfo;
+
+    public AirlineReservation()
+    {
+        initComponents();
+    }
+    
+    private void initComponents()
+    {
+        BorderLayout layout = new BorderLayout();
+        
+        // Initialize the JFrame
+        frame = new JFrame("COP 3330 Airline Reservation System");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(600, 400);
+        frame.setLayout(layout);
+        
+        // Initialize the JMenuBar and add to the JFrame
+        menuBar = new JMenuBar();
+        frame.add(menuBar, BorderLayout.NORTH);
+        
+        // Initialize the File menu and add the JMenuItems with action listener
+        fileMenu = new JMenu("File");
+        fileMenu.setMnemonic('F');
+        
+        // Register the event handler      
+        addAirport = new JMenuItem("Add Airport");
+        addAirport.addActionListener(new FileMenuAction());
+        
+        addAirline = new JMenuItem("Add Airline");
+        addAirline.addActionListener(new FileMenuAction());
+
+        addFlight = new JMenuItem("Add Flight");
+        addFlight.addActionListener(new FileMenuAction());
+
+        exit = new JMenuItem("Exit");
+        exit.addActionListener(new FileMenuAction());
+        
+        fileMenu.add(addAirport);    
+        fileMenu.add(addAirline);    
+        fileMenu.add(addFlight); 
+        fileMenu.add(exit);
+        menuBar.add(fileMenu);
+        
+        // Initialize the Book menu and add the JMenuItems with action listener
+        bookMenu = new JMenu("Book");
+        bookMenu.setMnemonic('B');
+        
+        bookFlight = new JMenuItem("Flight Reservations");
+        bookFlight.addActionListener(new BookMenuAction());
+
+        bookMenu.add(bookFlight);
+        menuBar.add(bookMenu);
+        
+        // Initialize the About menu and add the JMenuItems with action listener
+        aboutMenu = new JMenu("About");
+        aboutMenu.setMnemonic('A');
+        
+        aboutInfo = new JMenuItem("About Application");
+        aboutInfo.addActionListener(new AboutMenuAction());
+
+        aboutMenu.add(aboutInfo);
+        menuBar.add(aboutMenu);
+    
+        // This is where the individual classes are populated
+        mainPane = new JPanel();
+
+        frame.setVisible(true);
+        frame.validate();
+        frame.repaint();
+    }
+
+    // Private inner class for event handling
+    private class FileMenuAction implements ActionListener
+    {
+        // Process the object events
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            // Remove any previous content
+            mainPane.removeAll();
+
+            // gets the text of the JMenuItem
+            if ("Exit".equals(e.getActionCommand()))
+            {
+                System.exit(0);
+            }
+            else if ("Add Airport".equals(e.getActionCommand()))
+            {              
+                AddAirport addAirport = new AddAirport(mainPane);
+                //frame.add(addAirportPane);
+                frame.getContentPane().add(mainPane, BorderLayout.CENTER);
+                frame.validate();
+                frame.repaint();
+                frame.setVisible(true);
+            }
+            else if ("Add Airline".equals(e.getActionCommand()))
+            {
+                AddAirline addAirline = new AddAirline(mainPane);
+                frame.getContentPane().add(mainPane, BorderLayout.CENTER);
+                frame.validate();
+                frame.repaint();
+                frame.setVisible(true);
+            }
+            else if (e.getActionCommand() == "Add Flight")
+            {
+                AddFlight addFlight = new AddFlight(mainPane);
+                frame.getContentPane().add(mainPane, BorderLayout.CENTER);
+                frame.validate();;
+                frame.setVisible(true);
+            }
+        }    
+    }        
+
+    private class BookMenuAction implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            // Remove any previous content
+            mainPane.removeAll();
+
+            if (e.getActionCommand().equalsIgnoreCase("Flight Reservations"))
+            {
+                // Set the layout manager
+                BorderLayout layout = new BorderLayout();
+                // Create the main panel for the JTabbedPane to be added to
+                mainPane.setLayout(layout);
+                // Add the main panel to the JFrame
+                frame.getContentPane().add(mainPane);
+                // Create the JTabbedPane
+                JTabbedPane tabs = new JTabbedPane();
+
+                // Create the tabs
+                SearchFlight search = new SearchFlight();
+                tabs.add("Search Flight", search);
+                
+                SelectFlight select = new SelectFlight();
+                tabs.add("Select Flight", select);
+                
+                FlightPrice price = new FlightPrice();
+                tabs.add("Flight Price", price);
+                
+                BookTicket book = new BookTicket();
+                tabs.add("Book Ticket", book);
+                
+                Payment pay = new Payment();
+                tabs.add("Payment", pay);
+                
+                BookingSummary summary = new BookingSummary();
+                tabs.add("Booking Summary", summary);
+                
+                // Add the tabbed panel to the main panel
+                mainPane.add(tabs, BorderLayout.CENTER);
+                // Add the main panel to the frame
+                frame.add(mainPane, BorderLayout.CENTER);
+                frame.setVisible(true);
+                frame.validate();
+            }
+        }    
+    }        
+
+    private class AboutMenuAction implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            if ("About Application".equals(e.getActionCommand()))
+            {
+                AboutInfo about = new AboutInfo(frame);
+            }
+        }    
+    }        
+}
