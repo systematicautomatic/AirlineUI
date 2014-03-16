@@ -1,0 +1,149 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package userInterface;
+
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ *
+ * @author DanielPaddon
+ */
+public class SearchFlight extends JPanel {
+    private JRadioButton oneWay;
+    private JRadioButton roundTrip;
+    private ButtonGroup buttonGroup;
+    private JLabel fromDestLbl;
+    private JComboBox fromDestCb;
+    private JLabel toDestLbl;
+    private JComboBox toDestCb;
+    private JLabel departLbl;
+    private JComboBox departMonth;
+    private JComboBox departDay;
+    private JTextField departYear; 
+    private JLabel arriveLbl;
+    private JComboBox arriveMonth;
+    private JComboBox arriveDay;
+    private JTextField arriveYear;
+    private JLabel adultLbl;
+    private JComboBox adultCb;
+    private JLabel childLbl;
+    private JComboBox childCb;
+    private JLabel infantLbl;
+    private JComboBox infantCb;
+    private JButton searchBtn;
+    private JButton canxBtn;
+    private GridBagLayout gridBagLayout;
+    private GridBagConstraints constraints;
+    
+    
+    public SearchFlight()
+    {
+        initComponents();
+    }
+    
+    private void initComponents()
+    {
+        gridBagLayout = new GridBagLayout();
+        constraints = new GridBagConstraints();
+        this.setLayout(gridBagLayout);
+                
+        oneWay = new JRadioButton("One Way");
+        roundTrip = new JRadioButton("Round Trip");
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(oneWay);
+        buttonGroup.add(roundTrip);
+        this.addComponent(0, 0, 1, 1, this, oneWay);
+        this.addComponent(1, 0, 1, 1, this, roundTrip);
+     
+        fromDestLbl = new JLabel("From");
+        fromDestLbl.setPreferredSize(new Dimension(50, 25));
+        fromDestCb = new JComboBox();
+        fromDestCb.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 1, 1, 1, this, fromDestLbl);
+        this.addComponent(1, 1, 3, 1, this, fromDestCb);
+        
+        toDestLbl = new JLabel("To");
+        toDestLbl.setPreferredSize(new Dimension(50, 25));
+        toDestCb = new JComboBox();
+        toDestCb.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 2, 1, 1, this, toDestLbl);
+        this.addComponent(1, 2, 3, 1, this, toDestCb);
+        
+        departLbl = new JLabel("Depart");
+        departLbl.setPreferredSize(new Dimension(50, 25));
+        departMonth = new JComboBox();
+        departMonth.setPreferredSize(new Dimension(50, 25));
+        departDay = new JComboBox();
+        departDay.setPreferredSize(new Dimension(50, 25));
+        departYear = new JTextField(); 
+        departYear.setPreferredSize(new Dimension(50, 25));
+        this.addComponent(0, 3, 1, 1, this, departLbl);
+        this.addComponent(1, 3, 1, 1, this, departMonth);
+        this.addComponent(2, 3, 1, 1, this, departDay);
+        this.addComponent(3, 3, 1, 1, this, departYear);
+        
+        arriveLbl = new JLabel("Arrive");
+        arriveLbl.setPreferredSize(new Dimension(50, 25));
+        arriveMonth = new JComboBox();
+        arriveMonth.setPreferredSize(new Dimension(50, 25));
+        arriveDay = new JComboBox();
+        arriveDay.setPreferredSize(new Dimension(50, 25));
+        arriveYear = new JTextField();
+        arriveYear.setPreferredSize(new Dimension(50, 25));
+        this.addComponent(0, 4, 1, 1, this, arriveLbl);
+        this.addComponent(1, 4, 1, 1, this, arriveMonth);
+        this.addComponent(2, 4, 1, 1, this, arriveDay);
+        this.addComponent(3, 4, 1, 1, this, arriveYear);
+      
+        adultLbl = new JLabel("Adult");
+        adultLbl.setPreferredSize(new Dimension(50, 25));
+        adultCb = new JComboBox();
+        adultCb.setPreferredSize(new Dimension(50, 25));
+        this.addComponent(0, 5, 1, 1, this, adultLbl);
+        this.addComponent(1, 5, 1, 1, this, adultCb);
+        
+        childLbl = new JLabel("Child");
+        childLbl.setPreferredSize(new Dimension(50, 25));
+        childCb = new JComboBox();
+        childCb.setPreferredSize(new Dimension(50, 25));
+        this.addComponent(0, 6, 1, 1, this, childLbl);
+        this.addComponent(1, 6, 1, 1, this, childCb);
+        
+        infantLbl = new JLabel("Infant");
+        infantLbl.setPreferredSize(new Dimension(50, 25));
+        infantCb = new JComboBox();
+        infantCb.setPreferredSize(new Dimension(50, 25));
+        this.addComponent(0, 7, 1, 1, this, infantLbl);
+        this.addComponent(1, 7, 1, 1, this, infantCb);        
+        
+        searchBtn = new JButton("Search Flights");
+        searchBtn.setPreferredSize(new Dimension(125, 25));
+        this.addComponent(0, 8, 2, 1, this, searchBtn);
+        
+        canxBtn = new JButton("Cancel");
+        canxBtn.setPreferredSize(new Dimension(125, 25));
+        this.addComponent(2, 8, 2, 1, this, canxBtn);
+    }
+    
+    // X is the column
+    // Y is the row
+    // W is the width in cells
+    // H is the height in cells
+    // aContainer is the container the component is added to
+    // aComponent is the component being added to the container
+    private void addComponent( int x, int y, int w, int h, Container aContainer, Component aComponent )  
+    {  
+        constraints.gridx = x;  
+        constraints.gridy = y;  
+        constraints.gridwidth = w;  
+        constraints.gridheight = h;  
+        gridBagLayout.setConstraints( aComponent, constraints );  
+        aContainer.add( aComponent );  
+    }  
+    
+}
