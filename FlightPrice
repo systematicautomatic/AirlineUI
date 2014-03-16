@@ -1,0 +1,110 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package userInterface;
+
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ *
+ * @author DanielPaddon
+ */
+public class FlightPrice extends JPanel {
+    private JPanel buttonPane;
+    private FlowLayout flowLayout;
+    private BorderLayout borderLayout;
+    private JPanel dataPane;
+    private JLabel outbound;
+    private JLabel outDate;
+    private JTable departFlights;
+    private JLabel inbound;
+    private JLabel inDate;
+    private JTable returnFlights;
+    private JLabel flightCost;
+    private JTable priceTable;
+    private JButton purchase;
+    private JButton goBack;
+    private JButton cancel;
+    private GridBagLayout gridBagLayout;
+    private GridBagConstraints constraints;
+
+    public FlightPrice()
+    {
+        initComponents();
+    }
+    
+    private void initComponents()
+    {
+        gridBagLayout = new GridBagLayout();
+        constraints = new GridBagConstraints();
+        this.setLayout(gridBagLayout);
+                
+        //dataPane = new JPanel ();
+        //this.addComponent(0, 0, 1, 1, this, dataPane);
+        
+        outbound = new JLabel ("Depart: Orlando TO Atlanta");
+        outbound.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 1, 1, 1, this, outbound);
+        
+        outDate = new JLabel ("Date: March 15, 2014");
+        outDate.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 2, 1, 1, this, outDate);
+        
+        departFlights = new JTable ();
+        departFlights.setPreferredSize(new Dimension(300, 25));
+        this.addComponent(0, 3, 1, 1, this, departFlights);  
+        
+        inbound = new JLabel ("Atlanta TO Orlando");
+        inbound.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 4, 1, 1, this, inbound);
+        
+        inDate = new JLabel ("Date: March 19, 2014");
+        inDate.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 5, 1, 1, this, inDate);
+        
+        returnFlights = new JTable ();
+        returnFlights.setPreferredSize(new Dimension(300, 25));
+        this.addComponent(0, 6, 1, 1, this, returnFlights);
+        
+        flightCost = new JLabel ("Air Fare Cost");
+        flightCost.setPreferredSize(new Dimension(200, 25));
+        this.addComponent(0, 7, 1, 1, this, flightCost);
+        
+        priceTable = new JTable ();
+        priceTable.setPreferredSize(new Dimension(300, 25));
+        this.addComponent(0, 8, 1, 1, this, priceTable);
+        
+        goBack = new JButton("Go Back");
+        goBack.setPreferredSize(new Dimension(125, 25));
+        this.addComponent(0, 9, 1, 1, this, goBack);
+        
+        purchase = new JButton("Book Ticket");
+        purchase.setPreferredSize(new Dimension(125, 25));
+        this.addComponent(1, 9, 2, 1, this, purchase);
+        
+        cancel = new JButton("Cancel");
+        cancel.setPreferredSize(new Dimension(125, 25));
+        this.addComponent(3, 9, 3, 1, this, cancel);
+    }
+    
+    // X is the column
+    // Y is the row
+    // W is the width in cells
+    // H is the height in cells
+    // aContainer is the container the component is added to
+    // aComponent is the component being added to the container
+    private void addComponent( int x, int y, int w, int h, Container aContainer, Component aComponent )  
+    {  
+        constraints.gridx = x;  
+        constraints.gridy = y;  
+        constraints.gridwidth = w;  
+        constraints.gridheight = h;  
+        gridBagLayout.setConstraints( aComponent, constraints );  
+        aContainer.add( aComponent );  
+    }  
+    
+}
