@@ -120,6 +120,7 @@ public class AirlineReservation {
             else if ("Add Airport".equals(e.getActionCommand()))
             {              
                 AddAirport addAirport = new AddAirport(mainPane);
+                mainPane.add(addAirport);
                 //frame.add(addAirportPane);
                 frame.getContentPane().add(mainPane, BorderLayout.CENTER);
                 frame.validate();
@@ -129,16 +130,19 @@ public class AirlineReservation {
             else if ("Add Airline".equals(e.getActionCommand()))
             {
                 AddAirline addAirline = new AddAirline(mainPane);
+                mainPane.add(addAirline);
                 frame.getContentPane().add(mainPane, BorderLayout.CENTER);
                 frame.validate();
                 frame.repaint();
                 frame.setVisible(true);
             }
-            else if (e.getActionCommand() == "Add Flight")
+            else if ("Add Flight".equals(e.getActionCommand()))
             {
                 AddFlight addFlight = new AddFlight(mainPane);
+                mainPane.add(addFlight);
                 frame.getContentPane().add(mainPane, BorderLayout.CENTER);
-                frame.validate();;
+                frame.validate();
+                frame.repaint();
                 frame.setVisible(true);
             }
         }    
