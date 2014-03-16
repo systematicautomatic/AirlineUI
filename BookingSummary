@@ -1,0 +1,162 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package userInterface;
+
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ *
+ * @author DanielPaddon
+ */
+public class BookingSummary extends JPanel {
+    private JPanel buttonPane;
+    private FlowLayout flowLayout;
+    private BorderLayout borderLayout;
+    private JPanel dataPane;
+    private JLabel outbound;
+    private JLabel dateLbl;
+    private JLabel timeLbl;
+    private JLabel airlineLbl;
+    private JLabel flightNumberLbl;
+    private JLabel arriveTimeLbl;
+    private JLabel planeLbl;
+    private JLabel seatLbl;
+    private JLabel outDate;
+    private JLabel outTime;
+    private JLabel airline;
+    private JLabel airlines;
+    private JLabel flightNumber;
+    private JLabel returnFlightNumber;
+    private JLabel arriveTime;
+    private JLabel plane;
+    private JLabel seat;
+    private JLabel inbound;
+    private JLabel inDate;
+    private JLabel returnTime;
+    private JLabel homeTime;
+    private JLabel returnPlane;
+    private JLabel returnSeat;
+    private JButton ok;
+    private JButton cancel;
+    private GridBagLayout gridBagLayout;
+    private GridBagConstraints constraints;
+
+    public BookingSummary()
+    {
+        initComponents();
+    }
+    
+    private void initComponents()
+    {
+        gridBagLayout = new GridBagLayout();
+        constraints = new GridBagConstraints();
+        this.setLayout(gridBagLayout); 
+        
+        outbound = new JLabel ("Depart: Orlando TO Atlanta");
+        outbound.setPreferredSize(new Dimension(250, 25));
+        inbound = new JLabel ("Return: Atlanta TO Orlando");
+        inbound.setPreferredSize(new Dimension(250, 25));
+        this.addComponent(1, 0, 1, 1, this, outbound);       
+        this.addComponent(2, 0, 1, 1, this, inbound);
+        
+        dateLbl = new JLabel ("Date");
+        dateLbl.setPreferredSize(new Dimension(200, 25));
+        outDate = new JLabel ("March 15, 2014");
+        outDate.setPreferredSize(new Dimension(250, 25));
+        inDate = new JLabel ("March 19, 2014");
+        inDate.setPreferredSize(new Dimension(250, 25));
+        this.addComponent(0, 1, 1, 1, this, dateLbl);
+        this.addComponent(1, 1, 1, 1, this, outDate);
+        this.addComponent(2, 1, 1, 1, this, inDate);
+        
+        airlineLbl = new JLabel ("Airline");
+        airlineLbl.setPreferredSize(new Dimension(200, 25));
+        airline = new JLabel ("United");
+        airline.setPreferredSize(new Dimension(250, 25));
+        airlines = new JLabel ("United");
+        airlines.setPreferredSize(new Dimension(250, 25));
+        this.addComponent(0, 2, 1, 1, this, airlineLbl);
+        this.addComponent(1, 2, 1, 1, this, airline);
+        this.addComponent(2, 2, 1, 1, this, airlines);
+        
+        flightNumberLbl = new JLabel ("Flight Number");
+        flightNumberLbl.setPreferredSize(new Dimension(200, 25));
+        flightNumber = new JLabel ("239");
+        flightNumber.setPreferredSize(new Dimension(250, 25));
+        returnFlightNumber = new JLabel ("612");
+        returnFlightNumber.setPreferredSize(new Dimension(250, 25));
+        this.addComponent(0, 3, 1, 1, this, flightNumberLbl);
+        this.addComponent(1, 3, 1, 1, this, flightNumber);
+        this.addComponent(2, 3, 1, 1, this, returnFlightNumber);
+        
+        timeLbl = new JLabel ("Depart");
+        timeLbl.setPreferredSize(new Dimension(200, 25));
+        outTime = new JLabel ("8:00 AM");
+        outTime.setPreferredSize(new Dimension(250, 25));
+        arriveTime = new JLabel ("4:30 PM");
+        arriveTime.setPreferredSize(new Dimension(250, 25));
+        this.addComponent(0, 4, 1, 1, this, timeLbl);
+        this.addComponent(1, 4, 1, 1, this, outTime);
+        this.addComponent(2, 4, 1, 1, this, arriveTime);
+        
+        arriveTimeLbl = new JLabel ("Arrive");
+        arriveTimeLbl.setPreferredSize(new Dimension(200, 25));
+        returnTime = new JLabel ("9:05 AM");
+        returnTime.setPreferredSize(new Dimension(250, 25));
+        homeTime = new JLabel ("5:55 PM");
+        homeTime.setPreferredSize(new Dimension(250, 25));
+        this.addComponent(0, 5, 1, 1, this, arriveTimeLbl);
+        this.addComponent(1, 5, 1, 1, this, returnTime);
+        this.addComponent(2, 5, 1, 1, this, homeTime);
+        
+        planeLbl = new JLabel ("Plane Type");
+        planeLbl.setPreferredSize(new Dimension(200, 25));
+        plane = new JLabel ("767");
+        plane.setPreferredSize(new Dimension(250, 25));
+        returnPlane = new JLabel ("A320");
+        returnPlane.setPreferredSize(new Dimension(250, 25));
+        this.addComponent(0, 6, 1, 1, this, planeLbl);
+        this.addComponent(1, 6, 1, 1, this, plane);
+        this.addComponent(2, 6, 1, 1, this, returnPlane);
+        
+        seatLbl = new JLabel ("Seat");
+        seatLbl.setPreferredSize(new Dimension(200, 25));
+        seat = new JLabel ("25F");
+        seat.setPreferredSize(new Dimension(250, 25));
+        returnSeat = new JLabel ("19A");
+        returnSeat.setPreferredSize(new Dimension(250, 25));
+        this.addComponent(0, 7, 1, 1, this, seatLbl);
+        this.addComponent(1, 7, 1, 1, this, seat);
+        this.addComponent(2, 7, 1, 1, this, returnSeat);
+        
+        ok = new JButton("Ok");
+        ok.setPreferredSize(new Dimension(125, 25));
+        this.addComponent(0, 8, 1, 1, this, ok);
+        
+        cancel = new JButton("Cancel");
+        cancel.setPreferredSize(new Dimension(125, 25));
+        this.addComponent(1, 8, 2, 1, this, cancel);
+    }
+    
+    // X is the column
+    // Y is the row
+    // W is the width in cells
+    // H is the height in cells
+    // aContainer is the container the component is added to
+    // aComponent is the component being added to the container
+    private void addComponent( int x, int y, int w, int h, Container aContainer, Component aComponent )  
+    {  
+        constraints.gridx = x;  
+        constraints.gridy = y;  
+        constraints.gridwidth = w;  
+        constraints.gridheight = h;  
+        gridBagLayout.setConstraints( aComponent, constraints );  
+        aContainer.add( aComponent );  
+    }  
+       
+}
