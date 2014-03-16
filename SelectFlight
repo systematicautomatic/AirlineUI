@@ -1,0 +1,65 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package userInterface;
+
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ *
+ * @author DanielPaddon
+ */
+public class SelectFlight extends JPanel {
+    private JTable flightTable;
+    private JScrollPane scrollPane;
+    private BorderLayout borderLayout;
+    private FlowLayout flowLayout;
+    private JPanel buttonPane;
+    private JButton select;
+    private JButton goBack;
+    private JButton cancel;
+
+    public SelectFlight()
+    {
+        initComponents();
+    }
+    
+    private void initComponents()
+    {  
+        borderLayout = new BorderLayout();
+        flowLayout = new FlowLayout();
+        this.setLayout(borderLayout);
+        
+        flightTable = new JTable();
+        
+        scrollPane = new JScrollPane();
+        
+        goBack = new JButton("Go Back");
+        goBack.setPreferredSize(new Dimension(100, 25));
+        this.addComponent(0, 8, 1, 1, this, goBack);
+        
+        select = new JButton("Select Flight");
+        select.setPreferredSize(new Dimension(150, 25));
+        this.addComponent(1, 8, 2, 1, this, select);
+        
+        cancel = new JButton("Cancel");
+        cancel.setPreferredSize(new Dimension(100, 25));
+        this.addComponent(3, 8, 3, 1, this, cancel);
+    }
+    
+    // X is the column
+    // Y is the row
+    // W is the width in cells
+    // H is the height in cells
+    // aContainer is the container the component is added to
+    // aComponent is the component being added to the container
+    private void addComponent( int x, int y, int w, int h, Container aContainer, Component aComponent )  
+    {  
+
+    }  
+    
+}
